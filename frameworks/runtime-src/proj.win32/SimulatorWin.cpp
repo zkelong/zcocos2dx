@@ -32,7 +32,7 @@
 #include "platform/win32/PlayerMenuServiceWin.h"
 
 // define 1 to open console ui and setup windows system menu, 0 to disable
-#define SIMULATOR_WITH_CONSOLE_AND_MENU 0
+#define SIMULATOR_WITH_CONSOLE_AND_MENU 1
 
 USING_NS_CC;
 
@@ -261,7 +261,7 @@ int SimulatorWin::run()
             HMENU hmenu = GetSystemMenu(_hwndConsole, FALSE);
             if (hmenu != NULL)
             {
-                DeleteMenu(hmenu, SC_CLOSE, MF_BYCOMMAND);
+                //DeleteMenu(hmenu, SC_CLOSE, MF_BYCOMMAND); //窗口关闭按钮
             }
         }
     }
