@@ -61,20 +61,17 @@ static inline std::string convertPathFormatToUnixStyle(const std::string& path)
 
 static void _checkPath()
 {
-    if (s_resourcePath.empty())
-    {
-        WCHAR utf16Path[CC_MAX_PATH] = { 0 };
-        GetModuleFileNameW(NULL, utf16Path, CC_MAX_PATH - 1);
-        WCHAR *pUtf16ExePath = &(utf16Path[0]);
+	if (0 == s_resourcePath.length())
+	{
+		WCHAR utf16Path[CC_MAX_PATH] = { 0 };
+		GetCurrentDirectoryW(sizeof(utf16Path)-1, utf16Path);
 
-        // We need only directory part without exe
-        WCHAR *pUtf16DirEnd = wcsrchr(pUtf16ExePath, L'\\');
+		char utf8Path[CC_MAX_PATH] = { 0 };
+		int nNum = WideCharToMultiByte(CP_UTF8, 0, utf16Path, -1, utf8Path, sizeof(utf8Path), nullptr, nullptr);
 
-        char utf8ExeDir[CC_MAX_PATH] = { 0 };
-        int nNum = WideCharToMultiByte(CP_UTF8, 0, pUtf16ExePath, pUtf16DirEnd-pUtf16ExePath+1, utf8ExeDir, sizeof(utf8ExeDir), nullptr, nullptr);
-
-        s_resourcePath = convertPathFormatToUnixStyle(utf8ExeDir);
-    }
+		s_resourcePath = convertPathFormatToUnixStyle(utf8Path);
+		s_resourcePath.append("/");
+	}
 }
 
 FileUtils* FileUtils::getInstance()

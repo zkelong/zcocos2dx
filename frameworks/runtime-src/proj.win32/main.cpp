@@ -3,6 +3,7 @@
 #include <shellapi.h>
 
 //#define USING_SIMULATOR
+#define USING_WIN32_CONSOLE
 
 #ifndef USING_SIMULATOR
 USING_NS_CC;
@@ -20,19 +21,23 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
     auto simulator = SimulatorWin::getInstance();
     int ret = simulator->run();
 #else
+#ifdef USING_WIN32_CONSOLE
 	AllocConsole();
 	freopen("CONIN$", "r", stdin);
 	freopen("CONOUT$", "w", stdout);
 	freopen("CONOUT$", "w", stderr);
+#endif
 
 	AppDelegate app;
 	int ret = Application::getInstance()->run();
 
+#ifdef USING_WIN32_CONSOLE
 	if (!ret)
 	{
 		system("pause");
 	}
 	FreeConsole();
+#endif
 #endif
 
 	return ret;

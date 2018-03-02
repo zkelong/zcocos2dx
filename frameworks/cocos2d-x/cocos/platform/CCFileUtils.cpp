@@ -971,7 +971,7 @@ std::string FileUtils::getFullPathForDirectoryAndFilename(const std::string& dir
 
 bool FileUtils::isFileExist(const std::string& filename) const
 {
-    if (isAbsolutePath(filename))
+    if (isAbsolutePath(filename)) //ÊÇ·ñ¾ø¶ÔÂ·¾¶
     {
         return isFileExistInternal(filename);
     }
