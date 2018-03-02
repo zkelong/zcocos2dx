@@ -9,6 +9,10 @@ using namespace CocosDenshion;
 USING_NS_CC;
 using namespace std;
 
+//lua¼ÓÃÜÃÜÔ¿
+static const char *xxtea_key = "KeLong";
+static const char *xxtea_sign = "zcocos2dx";
+
 AppDelegate::AppDelegate()
 {
 }
@@ -55,7 +59,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     register_all_packages();
 
     LuaStack* stack = engine->getLuaStack();
-    stack->setXXTEAKeyAndSign("2dxLua", strlen("2dxLua"), "XXTEA", strlen("XXTEA"));
+	stack->setXXTEAKeyAndSign(xxtea_key, strlen(xxtea_key), xxtea_sign, strlen(xxtea_sign));
 
     //register custom function
     //LuaStack* stack = engine->getLuaStack();
