@@ -32,7 +32,15 @@ local function main()
         glview:setDesignResolutionSize(designSize.width, designSize.height, cc.ResolutionPolicy.FIXED_WIDTH)
     end
 
-    require("app.MyApp"):create():run()
+--    require("app.MyApp"):create():run()
+    local header = require("scene.LogoScene")
+	local scene = header.create()
+	if cc.Director:getInstance():getRunningScene() then
+		cc.Director:getInstance():replaceScene(scene)
+	else
+		cc.Director:getInstance():runWithScene(scene)
+	end
+
 end
 
 local status, msg = xpcall(main, __G__TRACKBACK__)
