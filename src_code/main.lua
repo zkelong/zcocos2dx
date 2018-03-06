@@ -14,7 +14,7 @@ local function main()
     local director = cc.Director:getInstance()
     local glview = director:getOpenGLView()
     if nil == glview then
-        glview = cc.GLViewImpl:createWithRect("Cocos2d-Lua", cc.rect(0, 0, 960, 640))
+        glview = cc.GLViewImpl:createWithRect("Kelong", cc.rect(0, 0, 960, 640))
         director:setOpenGLView(glview)
     end
 
