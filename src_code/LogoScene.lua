@@ -19,9 +19,9 @@ function LogoScene:init()
     bg:setPosition(self.visibleSize.width * 0.5, self.visibleSize.height * 0.5)
     bg:setScale(self.visibleSize.width /bg:getContentSize().width)
     local logoShowCallback = function(sender)
---        local x = require("AssertsUpdateScene")
---        local scene = x:create()
---        cc.Director:getInstance():replaceScene(scene)
+        local x = require("AssetsUpdateScene")
+        local scene = x:create()
+        cc.Director:getInstance():replaceScene(scene)
     end
     local action = cc.Sequence:create(
         cc.FadeIn:create(0.5),

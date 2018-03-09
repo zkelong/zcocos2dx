@@ -1,9 +1,9 @@
 
 cc.FileUtils:getInstance():setPopupNotify(false)
-cc.FileUtils:getInstance():addSearchPath("src/")
+cc.FileUtils:getInstance():addSearchPath("src_code/")
 cc.FileUtils:getInstance():addSearchPath("res/")
 
-require "config"   -- 调用配置，初始化全局变量
+--require "config"   -- 调用配置，初始化全局变量()
 require "cocos.init"
 
 local function main()
@@ -33,14 +33,13 @@ local function main()
     end
 
 --    require("app.MyApp"):create():run()
-    local header = require("scene.LogoScene")
+    local header = require("LogoScene")
 	local scene = header.create()
 	if cc.Director:getInstance():getRunningScene() then
 		cc.Director:getInstance():replaceScene(scene)
 	else
 		cc.Director:getInstance():runWithScene(scene)
 	end
-
 end
 
 local status, msg = xpcall(main, __G__TRACKBACK__)

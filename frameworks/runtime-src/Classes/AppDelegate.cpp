@@ -65,7 +65,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     //LuaStack* stack = engine->getLuaStack();
     //register_custom_function(stack->getLuaState());
 
-    if (engine->executeScriptFile("src/main.lua"))
+    if (engine->executeScriptFile("src_code/main.lua"))
     {
         return false;
     }
