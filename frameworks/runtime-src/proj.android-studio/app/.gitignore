@@ -1,2 +1,6 @@
 /build
 /jniLibs
+/assets/src
+/assets/res
+/release
+zcocos2dx.iml
