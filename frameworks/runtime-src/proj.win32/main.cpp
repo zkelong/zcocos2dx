@@ -1,5 +1,6 @@
 #include "main.h"
 #include "SimulatorWin.h"
+#include "AppDelegate.h"
 #include <shellapi.h>
 
 //#define USING_SIMULATOR
