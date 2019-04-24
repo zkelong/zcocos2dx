@@ -27,6 +27,8 @@ THE SOFTWARE.
 
 #include <stack>
 
+#include <ftw.h>
+
 #include "base/CCData.h"
 #include "base/ccMacros.h"
 #include "base/CCDirector.h"
@@ -44,6 +46,17 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 // Implement DictMaker
+
+static int unlink_cb(const char *fpath, const struct stat *sb, int typeflag, struct FTW *ftwbuf)
+{
+    auto ret = remove(fpath);
+    if (ret)
+    {
+        log("Fail to remove: %s ",fpath);
+    }
+    
+    return ret;
+}
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 
@@ -1154,6 +1167,13 @@ bool FileUtils::createDirectory(const std::string& path)
 
 bool FileUtils::removeDirectory(const std::string& path)
 {
+#if !defined(CC_TARGET_OS_TVOS)
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
+    if(nftw(path.c_str(), unlink_cb, 64, FTW_DEPTH | FTW_PHYS) == -1)
+        return false;
+    else
+        return true;
+#else
     std::string command = "rm -r ";
     // Path may include space.
     command += "\"" + path + "\"";
@@ -1161,6 +1181,8 @@ bool FileUtils::removeDirectory(const std::string& path)
         return true;
     else
         return false;
+#endif //(CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
+#endif //!defined(CC_TARGET_OS_TVOS)
 }
 
 bool FileUtils::removeFile(const std::string &path)
