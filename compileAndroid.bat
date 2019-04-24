@@ -1,5 +1,5 @@
 ::set AND_ROOT="D:\apache-ant-1.9.6\bin"
-set ANDROID_SDK_ROOT="F:\adt-bundle-eclipse\sdk"
+set ANDROID_SDK_ROOT="F:\adt-bundle-windows\sdk"
 set NDK_ROOT="D:\android-ndk-r14b"
 goto start
 使用 eclipse adt 工程目录下运行
@@ -16,3 +16,4 @@ android 编译选项：
 	cocos compile -h
 :start
 cocos compile -p android -m release -s F:\cocosSpace\zcocos2dx --ap android-20 --no-apk
+pause
