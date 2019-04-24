@@ -6,7 +6,10 @@ cc.FileUtils:getInstance():addSearchPath("res/")
 --require "config"   -- 调用配置，初始化全局变量()
 require "cocos.init"
 
+CC_SHOW_FPS = true
+
 local function main()
+    -- lua 垃圾GC设置
     collectgarbage("collect")
     collectgarbage("setpause", 100)
     collectgarbage("setstepmul", 5000)
@@ -19,7 +22,7 @@ local function main()
     end
 
     director:setAnimationInterval(1.0 / 30)
-    
+    -- 设计尺寸，屏幕适配
     local designSize = cc.size(960, 640)
     local resourceSize = cc.size(960, 640)
     director:setContentScaleFactor(resourceSize.height / designSize.height)
@@ -32,7 +35,11 @@ local function main()
         glview:setDesignResolutionSize(designSize.width, designSize.height, cc.ResolutionPolicy.FIXED_WIDTH)
     end
 
---    require("app.MyApp"):create():run()
+    --显示FPS
+    if CC_SHOW_FPS then
+        cc.Director:getInstance():setDisplayStats(true)
+    end
+
     local header = require("LogoScene")
 	local scene = header.create()
 	if cc.Director:getInstance():getRunningScene() then
