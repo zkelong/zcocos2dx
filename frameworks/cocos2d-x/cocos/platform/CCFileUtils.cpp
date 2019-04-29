@@ -27,8 +27,6 @@ THE SOFTWARE.
 
 #include <stack>
 
-#include <ftw.h>
-
 #include "base/CCData.h"
 #include "base/ccMacros.h"
 #include "base/CCDirector.h"
@@ -46,17 +44,6 @@ THE SOFTWARE.
 NS_CC_BEGIN
 
 // Implement DictMaker
-
-static int unlink_cb(const char *fpath, const struct stat *sb, int typeflag, struct FTW *ftwbuf)
-{
-    auto ret = remove(fpath);
-    if (ret)
-    {
-        log("Fail to remove: %s ",fpath);
-    }
-    
-    return ret;
-}
 
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS) && (CC_TARGET_PLATFORM != CC_PLATFORM_MAC)
 
@@ -984,7 +971,7 @@ std::string FileUtils::getFullPathForDirectoryAndFilename(const std::string& dir
 
 bool FileUtils::isFileExist(const std::string& filename) const
 {
-    if (isAbsolutePath(filename)) //ÊÇ·ñ¾ø¶ÔÂ·¾¶
+    if (isAbsolutePath(filename))
     {
         return isFileExistInternal(filename);
     }
@@ -1092,6 +1079,10 @@ long FileUtils::getFileSize(const std::string &filepath)
 #include <errno.h>
 #include <dirent.h>
 
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
+#include <ftw.h>
+#endif
+
 bool FileUtils::isDirectoryExistInternal(const std::string& dirPath) const
 {
     struct stat st;
@@ -1165,11 +1156,26 @@ bool FileUtils::createDirectory(const std::string& path)
     return true;
 }
 
+namespace
+{
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
+    int unlink_cb(const char *fpath, const struct stat *sb, int typeflag, struct FTW *ftwbuf)
+    {
+        int rv = remove(fpath);
+        
+        if (rv)
+            perror(fpath);
+        
+        return rv;
+    }
+#endif
+}
+
 bool FileUtils::removeDirectory(const std::string& path)
 {
 #if !defined(CC_TARGET_OS_TVOS)
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
-    if(nftw(path.c_str(), unlink_cb, 64, FTW_DEPTH | FTW_PHYS) == -1)
+    if (nftw(path.c_str(), unlink_cb, 64, FTW_DEPTH | FTW_PHYS) == -1)
         return false;
     else
         return true;
@@ -1181,8 +1187,8 @@ bool FileUtils::removeDirectory(const std::string& path)
         return true;
     else
         return false;
-#endif //(CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
-#endif //!defined(CC_TARGET_OS_TVOS)
+#endif // (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
+#endif // !defined(CC_TARGET_OS_TVOS)
 }
 
 bool FileUtils::removeFile(const std::string &path)
