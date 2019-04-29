@@ -1,27 +1,46 @@
-
-LoadingUI = class("LoadingUI", function()
-    return ccui.Layout:create()
-end)
-
-function LoadingUI:ctor()
---    self:registScriptHandler()
-end
+LoadingUI = class("LoadingUI", function() return ccui.Layout:create() end)
 
 function LoadingUI:create()
-    local ob = LoadingUI.new()
-    ob:init()
-    return ob
+    local x = LoadingUI.new()
+    x:init()
+    return x
+end
+
+function LoadingUI:ctor()
+    self:registGlobaleEvt()
+end
+
+function LoadingUI:registGlobaleEvt()
+    local onEvent = function(evt)
+        if evt == "enter" then
+            self:onEnter()
+        elseif evt == "exit" then
+            self:onExit()
+        end
+    end
+    self:registerScriptHandler(onEvent)
+end
+
+function LoadingUI:onEnter()
+
+end
+
+function LoadingUI:onExit()
+
 end
 
 function LoadingUI:init()
     local visible_size = cc.Director:getInstance():getVisibleSize()
-    self:setContentSize(visible_size)
-    -- loading 背景
-    local bg = ccui.ImageView:create("logo.png")
-    bg:setAnchorPoint(0.5, 0.5)
-    bg:setPosition(visible_size.width/2, visible_size.height/2)
+    local bg = ccui.ImageView:create("ui/login/background.jpg")
     bg:setScale(math.max(visible_size.width / 960, visible_size.height / 640))
-    self:addChild(bg, -1)
+    bg:setPosition(visible_size.width * 0.5, visible_size.height * 0.5)
+    self:addChild(bg)
+    local animation = sp.SkeletonAnimation:create("ui/login/login.json", "ui/login/login.atlas", 1)
+--    animation:setAnimation(0, "animation", true)
+    animation:addAnimation(60, "animation", true)
+	animation:setPosition(visible_size.width * 0.5, visible_size.height * 0.5)
+    animation:setScale(math.max(visible_size.width / 960, visible_size.height / 640))
+	self:addChild(animation)
     -- 进度条
     local progress_bg = ccui.Scale9Sprite:create("ui/common/loading_bg.png")
     self.progress_size = cc.size(770 * visible_size.width / 960, progress_bg:getContentSize().height)
@@ -45,18 +64,15 @@ function LoadingUI:init()
     self.progress_elves:setPosition(6, 10)
     self.progress_elves:setScale(-1, 1)
     progress_bg:addChild(self.progress_elves)
-    --随机提示
-    myRequire("common.RandomTips")
-    self.randomTips = RandomTips:create()
-    self.randomTips:setPosition(visible_size.width/2, 54)
-    self:addChild(self.randomTips)
 end
 
 function LoadingUI:setProgress(rate)
+    if rate > 1 then
+        rate = 1
+    end
     local w = self.progress_size.width * rate
     self.progress_bar:setContentSize(w, self.progress_size.height)
     self.progress_elves:setPosition(10 + w, self.progress_elves:getPositionY())
 end
-
 
 return LoadingUI

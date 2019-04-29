@@ -14,3 +14,4 @@ cocos luacompile 参数：
 下面的 KeLong zcocos2dx 对应 Class/AppDelegate.cpp 的 stack->setXXTEAKeyAndSign的值
 :start
 cocos luacompile -s .\src_code -d .\src -e -k KeLong -b zcocos2dx --disable-compile
+pause

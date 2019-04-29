@@ -1,0 +1,62 @@
+
+login.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+biyan1
+  rotate: false
+  xy: 792, 451
+  size: 121, 91
+  orig: 123, 93
+  offset: 1, 1
+  index: -1
+biyan2
+  rotate: false
+  xy: 585, 23
+  size: 44, 45
+  orig: 46, 47
+  offset: 1, 1
+  index: -1
+boss
+  rotate: true
+  xy: 964, 683
+  size: 183, 363
+  orig: 185, 365
+  offset: 1, 1
+  index: -1
+nan
+  rotate: false
+  xy: 2, 2
+  size: 581, 540
+  orig: 583, 542
+  offset: 1, 1
+  index: -1
+nv
+  rotate: false
+  xy: 1581, 896
+  size: 200, 125
+  orig: 202, 127
+  offset: 1, 1
+  index: -1
+shui1
+  rotate: true
+  xy: 585, 70
+  size: 472, 205
+  orig: 474, 207
+  offset: 1, 1
+  index: -1
+shui2
+  rotate: false
+  xy: 2, 544
+  size: 960, 477
+  orig: 962, 479
+  offset: 1, 1
+  index: -1
+shui3
+  rotate: false
+  xy: 964, 868
+  size: 615, 153
+  orig: 617, 155
+  offset: 1, 1
+  index: -1

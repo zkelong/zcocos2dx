@@ -1,0 +1,146 @@
+
+hall_01.png
+size: 257,278
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hall_01
+  rotate: false
+  xy: 2, 33
+  size: 203, 243
+  orig: 203, 243
+  offset: 0, 0
+  index: -1
+xin_0000
+  rotate: false
+  xy: 207, 128
+  size: 27, 28
+  orig: 102, 102
+  offset: 36, 36
+  index: -1
+xin_0001
+  rotate: true
+  xy: 2, 2
+  size: 29, 28
+  orig: 102, 102
+  offset: 35, 36
+  index: -1
+xin_0002
+  rotate: true
+  xy: 32, 2
+  size: 29, 28
+  orig: 102, 102
+  offset: 35, 36
+  index: -1
+xin_0003
+  rotate: false
+  xy: 207, 248
+  size: 30, 28
+  orig: 102, 102
+  offset: 34, 36
+  index: -1
+xin_0004
+  rotate: false
+  xy: 207, 218
+  size: 30, 28
+  orig: 102, 102
+  offset: 34, 36
+  index: -1
+xin_0005
+  rotate: false
+  xy: 207, 188
+  size: 30, 28
+  orig: 102, 102
+  offset: 34, 36
+  index: -1
+xin_0006
+  rotate: true
+  xy: 62, 2
+  size: 29, 28
+  orig: 102, 102
+  offset: 34, 36
+  index: -1
+xin_0007
+  rotate: true
+  xy: 92, 2
+  size: 29, 28
+  orig: 102, 102
+  offset: 34, 36
+  index: -1
+xin_0008
+  rotate: false
+  xy: 207, 158
+  size: 28, 28
+  orig: 102, 102
+  offset: 35, 36
+  index: -1
+xin_0009
+  rotate: false
+  xy: 122, 2
+  size: 27, 29
+  orig: 102, 102
+  offset: 35, 36
+  index: -1
+xin_0010
+  rotate: false
+  xy: 180, 2
+  size: 26, 29
+  orig: 102, 102
+  offset: 35, 36
+  index: -1
+xin_0011
+  rotate: false
+  xy: 207, 66
+  size: 24, 29
+  orig: 102, 102
+  offset: 36, 36
+  index: -1
+xin_0012
+  rotate: false
+  xy: 207, 35
+  size: 23, 29
+  orig: 102, 102
+  offset: 37, 36
+  index: -1
+xin_0013
+  rotate: false
+  xy: 233, 66
+  size: 22, 29
+  orig: 102, 102
+  offset: 38, 36
+  index: -1
+xin_0014
+  rotate: false
+  xy: 208, 4
+  size: 22, 29
+  orig: 102, 102
+  offset: 38, 36
+  index: -1
+xin_0015
+  rotate: false
+  xy: 232, 4
+  size: 22, 29
+  orig: 102, 102
+  offset: 38, 36
+  index: -1
+xin_0016
+  rotate: false
+  xy: 232, 35
+  size: 23, 29
+  orig: 102, 102
+  offset: 38, 36
+  index: -1
+xin_0017
+  rotate: false
+  xy: 207, 97
+  size: 25, 29
+  orig: 102, 102
+  offset: 37, 36
+  index: -1
+xin_0018
+  rotate: false
+  xy: 151, 2
+  size: 27, 29
+  orig: 102, 102
+  offset: 36, 36
+  index: -1

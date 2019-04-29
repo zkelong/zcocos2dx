@@ -1,0 +1,153 @@
+
+hall_03.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hall_03
+  rotate: false
+  xy: 2, 28
+  size: 204, 226
+  orig: 204, 226
+  offset: 0, 0
+  index: -1
+light_0002
+  rotate: false
+  xy: 290, 208
+  size: 4, 4
+  orig: 256, 256
+  offset: 85, 164
+  index: -1
+light_0003
+  rotate: true
+  xy: 456, 226
+  size: 9, 26
+  orig: 256, 256
+  offset: 85, 161
+  index: -1
+light_0004
+  rotate: false
+  xy: 208, 102
+  size: 16, 41
+  orig: 256, 256
+  offset: 85, 146
+  index: -1
+light_0005
+  rotate: true
+  xy: 456, 237
+  size: 17, 40
+  orig: 256, 256
+  offset: 88, 146
+  index: -1
+light_0006
+  rotate: false
+  xy: 208, 65
+  size: 20, 35
+  orig: 256, 256
+  offset: 91, 146
+  index: -1
+light_0007
+  rotate: false
+  xy: 208, 145
+  size: 21, 44
+  orig: 256, 256
+  offset: 94, 135
+  index: -1
+light_0008
+  rotate: false
+  xy: 233, 195
+  size: 25, 59
+  orig: 256, 256
+  offset: 97, 116
+  index: -1
+light_0009
+  rotate: false
+  xy: 208, 191
+  size: 23, 63
+  orig: 256, 256
+  offset: 105, 112
+  index: -1
+light_0010
+  rotate: true
+  xy: 2, 2
+  size: 24, 62
+  orig: 256, 256
+  offset: 111, 112
+  index: -1
+light_0011
+  rotate: false
+  xy: 260, 204
+  size: 28, 50
+  orig: 256, 256
+  offset: 114, 124
+  index: -1
+light_0012
+  rotate: false
+  xy: 320, 217
+  size: 29, 37
+  orig: 256, 256
+  offset: 120, 121
+  index: -1
+light_0013
+  rotate: true
+  xy: 391, 226
+  size: 28, 31
+  orig: 256, 256
+  offset: 127, 125
+  index: -1
+light_0014
+  rotate: false
+  xy: 424, 225
+  size: 30, 29
+  orig: 256, 256
+  offset: 133, 125
+  index: -1
+light_0015
+  rotate: true
+  xy: 351, 227
+  size: 27, 38
+  orig: 256, 256
+  offset: 142, 126
+  index: -1
+light_0016
+  rotate: false
+  xy: 290, 214
+  size: 28, 40
+  orig: 256, 256
+  offset: 147, 126
+  index: -1
+light_0017
+  rotate: true
+  xy: 66, 2
+  size: 24, 43
+  orig: 256, 256
+  offset: 156, 123
+  index: -1
+light_0018
+  rotate: true
+  xy: 111, 3
+  size: 23, 43
+  orig: 256, 256
+  offset: 161, 123
+  index: -1
+light_0019
+  rotate: true
+  xy: 156, 6
+  size: 20, 38
+  orig: 256, 256
+  offset: 166, 128
+  index: -1
+light_0020
+  rotate: false
+  xy: 498, 220
+  size: 12, 34
+  orig: 256, 256
+  offset: 174, 131
+  index: -1
+light_0021
+  rotate: true
+  xy: 260, 195
+  size: 7, 19
+  orig: 256, 256
+  offset: 179, 138
+  index: -1

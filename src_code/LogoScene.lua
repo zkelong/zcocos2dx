@@ -14,7 +14,7 @@ function LogoScene:ctor()
 end
 
 
-function LogoScene:init()    
+function LogoScene:init()
     local bg = cc.Sprite:create("logo.png")
     bg:setPosition(self.visibleSize.width * 0.5, self.visibleSize.height * 0.5)
     bg:setScale(self.visibleSize.width /bg:getContentSize().width)
@@ -24,7 +24,7 @@ function LogoScene:init()
         cc.Director:getInstance():replaceScene(scene)
     end
     local action = cc.Sequence:create(
-        cc.FadeIn:create(0.5),
+        cc.FadeIn:create(0.2),
         cc.DelayTime:create(1.5),
         cc.CallFunc:create(logoShowCallback)
     )
