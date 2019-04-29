@@ -1,9 +1,12 @@
+//#define USING_SIMULATOR
+
 #include "main.h"
+#ifdef USING_SIMULATOR
 #include "SimulatorWin.h"
+#endif
 #include "AppDelegate.h"
 #include <shellapi.h>
 
-//#define USING_SIMULATOR
 #define USING_WIN32_CONSOLE
 
 #ifndef USING_SIMULATOR

@@ -25,8 +25,13 @@ THE SOFTWARE.
  ****************************************************************************/
 package org.cocos2dx.lua;
 
-import org.cocos2dx.lib.Cocos2dxActivity;
+import java.lang.reflect.Constructor;
 
+import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.lua.sdk.ThirdSdkInterface;
+
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -36,7 +41,28 @@ public class AppActivity extends Cocos2dxActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		Log.d("KL", "ONCREATE............");
+		ApplicationInfo ai;
+		try {
+			ai = getPackageManager().getApplicationInfo(getPackageName(),
+					PackageManager.GET_META_DATA);
+			Bundle bundle = ai.metaData;
+			String sdkCassNameKey = "android.app.sdkName";
+			if (bundle.containsKey(sdkCassNameKey)) {
+				String className = bundle.getString(sdkCassNameKey);
+				Class<?> sdkClass = Class.forName(className);
+				Constructor<?> cs = sdkClass
+						.getConstructor(Cocos2dxActivity.class);
+				ThirdSdk.init((ThirdSdkInterface) cs.newInstance(this));
+			}
+
+			// } catch (NameNotFoundException | InstantiationException |
+			// IllegalAccessException | IllegalArgumentException
+			// | InvocationTargetException | NoSuchMethodException |
+			// SecurityException | ClassNotFoundException e) {
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
