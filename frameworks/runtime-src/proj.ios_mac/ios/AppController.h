@@ -22,13 +22,14 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
+#import "ThirdSdk.h"
 @class RootViewController;
 
 @interface AppController : NSObject <UIApplicationDelegate>
 {
     UIWindow *window;
     RootViewController *viewController;
+    ThirdSdk *sdk;
 }
 
 @end

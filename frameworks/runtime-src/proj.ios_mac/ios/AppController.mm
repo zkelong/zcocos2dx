@@ -86,7 +86,24 @@ static AppDelegate s_sharedApplication;
     cocos2d::Director::getInstance()->setOpenGLView(glview);
 
     app->run();
+    sdk = [[ThirdSdk alloc] init:viewController application:application options:launchOptions];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [sdk application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [sdk application:application handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options{
+    
+    return [sdk application:app openURL:url options:options];
 }
 
 
@@ -140,6 +157,8 @@ static AppDelegate s_sharedApplication;
 
 
 - (void)dealloc {
+    [sdk release];
+    [window release];
     [super dealloc];
 }
 

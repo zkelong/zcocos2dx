@@ -54,13 +54,7 @@ public class AppActivity extends Cocos2dxActivity {
 						.getConstructor(Cocos2dxActivity.class);
 				ThirdSdk.init((ThirdSdkInterface) cs.newInstance(this));
 			}
-
-			// } catch (NameNotFoundException | InstantiationException |
-			// IllegalAccessException | IllegalArgumentException
-			// | InvocationTargetException | NoSuchMethodException |
-			// SecurityException | ClassNotFoundException e) {
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

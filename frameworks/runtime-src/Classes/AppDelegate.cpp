@@ -64,7 +64,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     //register custom function
     //LuaStack* stack = engine->getLuaStack();
     //register_custom_function(stack->getLuaState());
-
+    
     if (engine->executeScriptFile("src_code/main.lua"))
     {
         return false;
@@ -78,7 +78,8 @@ void AppDelegate::applicationDidEnterBackground()
 {
     Director::getInstance()->stopAnimation();
 
-    SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+//    SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("APP_ENTER_BACKGROUND_EVT");
 }
 
 // this function will be called when the app is active again
@@ -86,5 +87,6 @@ void AppDelegate::applicationWillEnterForeground()
 {
     Director::getInstance()->startAnimation();
 
-    SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+//    SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("APP_ENTER_FOREGROUND_EVT");
 }
