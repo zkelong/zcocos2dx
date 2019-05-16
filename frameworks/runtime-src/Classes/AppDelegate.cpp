@@ -3,6 +3,7 @@
 #include "audio/include/SimpleAudioEngine.h"
 #include "cocos2d.h"
 #include "scripting/lua-bindings/manual/lua_module_register.h"
+#include "kl_lua_auto.h"
 
 using namespace CocosDenshion;
 
@@ -61,6 +62,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     LuaStack* stack = engine->getLuaStack();
 	stack->setXXTEAKeyAndSign(xxtea_key, strlen(xxtea_key), xxtea_sign, strlen(xxtea_sign));
 
+	register_all_kl(L);
     //register custom function
     //LuaStack* stack = engine->getLuaStack();
     //register_custom_function(stack->getLuaState());

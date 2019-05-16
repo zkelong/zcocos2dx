@@ -8,6 +8,8 @@ LOCAL_MODULE_FILENAME := libcocos2dlua
 
 LOCAL_SRC_FILES := \
 ../../Classes/AppDelegate.cpp \
+../../Classes/kl_lua_auto.cpp \
+../../Classes/THelper.cpp \
 hellolua/main.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

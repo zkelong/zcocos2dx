@@ -189,6 +189,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\kl_lua_auto.h" />
+    <ClInclude Include="..\Classes\LuaBindings.h" />
+    <ClInclude Include="..\Classes\THelper.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SimulatorWin.h" />
@@ -197,6 +200,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\kl_lua_auto.cpp" />
+    <ClCompile Include="..\Classes\THelper.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimulatorWin.cpp" />
     <ClCompile Include="stdafx.cpp" />
