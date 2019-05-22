@@ -5,7 +5,6 @@ function myRequire(path)
 end
 
 myRequire("Require")
-myRequire("SysSetting")
 local AssetsUpdateScene = class("AssetsUpdateScene", function()
     return cc.Scene:create()
 end)
@@ -32,6 +31,8 @@ function AssetsUpdateScene:registGlobalEvt()
 end
 
 function AssetsUpdateScene:onEnter()
+    myRequire("SystemSetting")
+    SystemSetting.loadWords()
     local updateProgress = function()
         self.progress = self.progress + 0.2
         if self.loadingUi then
