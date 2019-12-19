@@ -1,4 +1,4 @@
-::set AND_ROOT="D:\apache-ant-1.9.6\bin"
+set ANT_ROOT="D:\apache_ant_196"
 set ANDROID_SDK_ROOT="F:\adt-bundle-windows\sdk"
 set NDK_ROOT="D:\android-ndk-r14b"
 goto start
