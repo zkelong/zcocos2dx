@@ -19,5 +19,7 @@ function SystemSetting.playEffect(effect_file, is_loop)
 end
 
 function SystemSetting.loadWords()
+    kl.THelper:log("SystemSetting.loadWords.....yy")
     myRequire("config.ch.Words")
+    kl.THelper:log("SystemSetting.loadWords.....zz")
 end
